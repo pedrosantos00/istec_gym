@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            border-radius: 10px 10px 0 0;
+        }
+
+            .header h1 {
+                margin: 0;
+            }
+
+        .content {
+            margin: 20px 0;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>Welcome!</h1>
+        </div>
+        <div class="content">
+            <p>Hello,</p>
+            <p>Thank you for registering on our platform! You can now use the website to sign up for gym classes and explore all the benefits we offer.</p>
+            <p>
+                To activate your account, please click the button below:
+            </p>
+            <a href="{{CONFIRMATION_LINK}}" target="_blank" class="button">Activate Account</a>
+            <p style="margin-top:10px">If the button above doesn't work, copy and paste the following link into your browser:</p>
+            <p><a href="{{CONFIRMATION_LINK}}">{{CONFIRMATION_LINK}}</a></p>
+            <p>If you didn't register, you can ignore this email.</p>
+        </div>
+        <div class="footer">
+            <p>If you need help, contact us at support@gym.com.</p>
+            <p>Thank you, <br> The Gym Team</p>
+        </div>
+    </div>
+</body>
+</html>

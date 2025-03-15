@@ -1,0 +1,29 @@
+<main class="w-full h-full">
+    <div class="w-full flex p-4">
+        <div class="w-full">
+            <p-menubar [model]="items" styleClass="justify-between">
+                <ng-template #start>
+                    <div routerLink="/" class="flex items-center gap-2 select-none w-[134px] cursor-pointer">
+                        <ng-icon name="lucideDumbbell" class="text-2xl animate-spin-slow"></ng-icon>
+                        <span class="font-semibold uppercase">
+                            <span class="text-primary">iron</span> temple
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template #end>
+                    <div class="flex h-full items-center">
+                        <p-toggleswitch [(ngModel)]="checked" (onChange)="toggleTheme()">
+                            <ng-template #handle let-checked="checked">
+                                <i [ngClass]="['!text-xs', 'pi', checked ? 'pi-moon' : 'pi-sun']"></i>
+                            </ng-template>
+                        </p-toggleswitch>
+                    </div>
+                </ng-template>
+            </p-menubar>
+        </div>
+    </div>
+    <div class="w-full full-screen">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+</main>

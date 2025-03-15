@@ -1,0 +1,28 @@
+<header class="navbar fixed flex w-full h-20 items-center justify-center z-50
+             transition-shadow duration-300 bg-surface-0 dark:bg-zinc-800" [class.scrolled]="isScrolled">
+    <div class="container flex justify-between items-center">
+        <div class=" flex items-center gap-2 select-none">
+            <ng-icon name="lucideDumbbell" class="text-2xl animate-spin-slow"></ng-icon>
+            <span class="font-semibold uppercase">
+                <span class="text-primary">iron</span> temple
+            </span>
+        </div>
+        <nav class="relative">
+            <a [routerLink]="['/']" routerLinkActive="selected" [routerLinkActiveOptions]="{ exact: true }">
+                Home
+                <div class="selector" routerLinkActive="selector-active" [routerLinkActiveOptions]="{ exact: true }">
+                </div>
+            </a>
+            <a  [routerLink]="isLoggedIn ? '/dashboard' : '/login'" routerLinkActive="selected" [routerLinkActiveOptions]="{ exact: true }">
+                {{ isLoggedIn ? 'Dashboard' : 'Login' }}
+                <div class="selector" routerLinkActive="selector-active"></div>
+            </a>
+        </nav>
+    </div>
+
+    <p-toggleswitch [(ngModel)]="checked" (onChange)="toggleTheme()">
+        <ng-template #handle let-checked="checked">
+            <i [ngClass]="['!text-xs', 'pi', checked ? 'pi-moon' : 'pi-sun']"></i>
+        </ng-template>
+    </p-toggleswitch>
+</header>

@@ -1,0 +1,75 @@
+<div class="w-full h-full">
+    <div class="flex justify-center">
+        <div class="container">
+            <div class="h-full w-full">
+                <div class="w-full flex justify-end py-4">
+                    <p-button styleClass="ml-auto" label="Create" icon="pi pi-plus" (onClick)="showDialog(GymClassModalMode.CREATE)"/>
+                </div>
+                <p-table [value]="gymClassesList" [first]="first"
+                    [totalRecords]="totalRecords" [paginator]="true" [rows]="rows" (onPage)="pageChange($event)"
+                    [rowsPerPageOptions]="[5,10]" [lazy]="true" size="large">
+                    <ng-template #header>
+                        <tr>
+                            <th>Name</th>
+                            <th>Day</th>
+                            <th>Difficulty</th>
+                            <th>Duration (minutes)</th>
+                            <th>Max Participants</th>
+                            <th style="width: 5rem"></th>
+                            <th style="width: 5rem"></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-gymClass>
+                        <tr>
+                            <td>{{ gymClass.name }}</td>
+                            <td>{{ gymClass.day | date : 'short' }}</td>
+                            <td>{{ gymClass.difficulty | difficulty }}</td>
+                            <td>{{ gymClass.duration }}</td>
+                            <td>{{ gymClass.maxParticipants }}</td>
+
+                            <td>
+                              <p-button icon="pi pi-pencil"
+                              (click)="showDialog(GymClassModalMode.EDIT, gymClass)" severity="secondary"
+                              rounded />
+                            </td>
+
+                            <td>
+                              <p-button icon="pi pi-trash" (click)="deleteClass(gymClass)" severity="secondary"
+                                  rounded />
+                          </td>
+
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog [header]="mode === GymClassModalMode.CREATE ? 'Create Gym Class' : 'Edit Gym Class'" [modal]="true" [(visible)]="dialogVisible"
+    [style]="{ width: '40rem', height: '50rem' }" [responsive]="true" [resizable]="true">
+    <form [formGroup]="form" class="flex flex-col gap-4" >
+        <p-floatlabel variant="in">
+            <input pInputText id="name" formControlName="name" autocomplete="off" fluid="true" [autofocus]="true" />
+            <label for="name">Name</label>
+        </p-floatlabel>
+        <p-floatlabel variant="in" class="w-full">
+            <p-datepicker inputId="calendar-24h" [showTime]="true" hourFormat="24" formControlName="day" showIcon iconDisplay="input" fluid="true" />
+            <label for="date">Date</label>
+        </p-floatlabel>
+        <p-floatlabel variant="in">
+            <p-inputnumber inputId="in_label" formControlName="duration" mode="decimal" maxlength="3" fluid="true" maxFractionDigits="1" />
+            <label for="in_label">Duration (In Minutes)</label>
+        </p-floatlabel>
+        <label for="Difficulty">Difficulty</label>
+        <p-selectbutton id="Difficulty" styleClass="w-full" formControlName="difficulty" [options]="difficultyOptions" optionLabel="name"
+            optionValue="value" />
+        <p-floatlabel variant="in">
+            <p-inputnumber inputId="participants" formControlName="maxParticipants" mode="decimal" maxlength="2" max="99" fluid="true" />
+            <label for="participants">Max Participants</label>
+        </p-floatlabel>
+        <div class="flex w-full justify-end">
+          <p-button [label]="mode === GymClassModalMode.CREATE ? 'Submit' : 'Update'" (onClick)="submit()" />
+      </div>
+    </form>
+</p-dialog>

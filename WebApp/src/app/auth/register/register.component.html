@@ -1,0 +1,136 @@
+  <form [formGroup]="formGroup" class="flex grow justify-center">
+  <p-stepper [value]="1" class="basis-[50rem] mt-24" [linear]="true">
+    <p-step-list>
+      <p-step [value]="1">Personal Info</p-step>
+      <p-step [value]="2">Health Info</p-step>
+      <p-step [value]="3">Account Info</p-step>
+    </p-step-list>
+    <p-step-panels>
+      <p-step-panel [value]="1">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="flex flex-col h-48">
+            <div class="rounded flex-auto flex justify-center items-center font-medium flex-wrap gap-8 py-12">
+
+              <div class="field">
+                <p-floatlabel variant="in">
+                  <input formControlName="firstName" pInputText id="on_label" autocomplete="off" fluid="true" />
+                  <label for="on_label">Name</label>
+                </p-floatlabel>
+                <small class="p-error block" *ngIf="firstName?.invalid && firstName?.dirty">First name is
+                  required</small>
+              </div>
+
+              <div class="field">
+                <p-floatlabel variant="in">
+                  <input formControlName="lastName" pInputText id="on_label" autocomplete="off" fluid="true" />
+                  <label for="on_label">Surname</label>
+                </p-floatlabel>
+                <small class="p-error block" *ngIf="lastName?.invalid && lastName?.dirty">Surname is required</small>
+              </div>
+
+              <div class="field">
+                <p-floatlabel variant="in">
+                  <p-select inputId="in_label" formControlName="gender"
+                    [options]="[{name : 'Male', code: 0}, {name : 'Female', code: 1}]" optionLabel="name"
+                    styleClass="w-full" />
+                  <label for="in_label">Gender</label>
+                </p-floatlabel>
+                <small class="p-error block" *ngIf="gender?.invalid && gender?.dirty">Surname is required</small>
+              </div>
+
+              <div class="field">
+                <p-floatlabel variant="in">
+                  <p-datepicker formControlName="birthDate" inputId="in_label" showIcon iconDisplay="input"
+                    fluid="true" />
+                  <label for="in_label">Birth Date</label>
+                </p-floatlabel>
+                <small class="p-error block" *ngIf="birthDate?.invalid && birthDate?.dirty">Birth Date is
+                  required</small>
+              </div>
+
+              <div class="field">
+                <p-floatlabel variant="in">
+                  <input formControlName="nIF" pInputText id="on_label" autocomplete="off" fluid="true" />
+                  <label for="on_label">NIF</label>
+                </p-floatlabel>
+                <small class="p-error block" *ngIf="nIF?.invalid && nIF?.dirty">Birth Date is required</small>
+              </div>
+            </div>
+            <div class="flex pt-6 justify-end">
+              <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(2)" />
+            </div>
+          </div>
+        </ng-template>
+      </p-step-panel>
+
+      <p-step-panel [value]="2">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="flex flex-col h-48">
+            <div class="rounded flex-auto flex justify-center items-center font-medium flex-wrap gap-8 py-12">
+
+              <div class="field">
+                <p-floatlabel variant="in">
+                  <input formControlName="height" pInputText id="on_label" autocomplete="off" fluid="true" />
+                  <label for="on_label">Height (cm)</label>
+                </p-floatlabel>
+                <small class="p-error block" *ngIf="height?.invalid && height?.dirty">Height is required</small>
+              </div>
+
+              <div class="field">
+                <p-floatlabel variant="in">
+                  <input formControlName="weight" pInputText id="on_label" autocomplete="off" fluid="true" />
+                  <label for="on_label">Weight (cm)</label>
+                </p-floatlabel>
+                <small class="p-error block" *ngIf="weight?.invalid && weight?.dirty">Weight is required</small>
+              </div>
+
+            </div>
+            <div class="flex pt-6 justify-between">
+              <p-button label="Back" severity="secondary" icon="pi pi-arrow-left" (onClick)="activateCallback(1)" />
+              <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(3)" />
+            </div>
+          </div>
+        </ng-template>
+      </p-step-panel>
+
+      <p-step-panel [value]="3">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="flex flex-col h-48">
+            <div class="rounded flex-auto flex justify-center items-center font-medium flex-wrap gap-8 py-12">
+
+              <div class="field">
+                <p-floatlabel variant="in">
+                  <input formControlName="email" pInputText id="on_label" autocomplete="off" fluid="true" />
+                  <label for="on_label">Email</label>
+                </p-floatlabel>
+                <small class="p-error block" *ngIf="email?.invalid && email?.dirty">Email is required</small>
+              </div>
+
+              <div class="field">
+                <p-floatlabel variant="in">
+                  <p-password formControlName="password" inputId="in_label" fluid="true" />
+                  <label for="in_label">Password</label>
+                </p-floatlabel>
+                <small class="p-error block" *ngIf="password?.invalid && password?.dirty">Password is required</small>
+              </div>
+
+              <div class="field">
+                <p-floatlabel variant="in">
+                  <p-password formControlName="confirmPassword" inputId="in_label" [feedback]="false" fluid="true" />
+                  <label for="in_label">Confirm Password</label>
+                </p-floatlabel>
+                <small class="p-error block" *ngIf="confirmPassword?.invalid && confirmPassword?.dirty">Confirm Password
+                  is required</small>
+              </div>
+
+            </div>
+            <div class="flex pt-6 justify-between">
+              <p-button label="Back" severity="secondary" icon="pi pi-arrow-left" (onClick)="activateCallback(2)" />
+              <p-button label="Register" icon="pi pi-arrow-right" iconPos="right" (onClick)="submit()" />
+            </div>
+          </div>
+        </ng-template>
+      </p-step-panel>
+    </p-step-panels>
+  </p-stepper>
+</form>

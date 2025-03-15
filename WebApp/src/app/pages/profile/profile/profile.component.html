@@ -1,0 +1,39 @@
+<div class="w-full h-full">
+    <div class="w-full h-full flex items-center justify-center">
+        <div class="container">
+            <h1 class="text-primary text-4xl uppercase font-bold my-12">profile</h1>
+            <form action="" [formGroup]="formGroup" class="flex flex-col w-full gap-10">
+                <div class="flex w-full gap-8">
+                    <p-floatlabel variant="in" class="w-1/2">
+                        <input pInputText id="in_label" formControlName="name" autocomplete="off" [fluid]="true" />
+                        <label for="in_label">Name</label>
+                    </p-floatlabel>
+                    <p-floatlabel variant="in" class="w-1/2">
+                        <input pInputText id="in_label" autocomplete="off" formControlName="surname" [fluid]="true" />
+                        <label for="in_label">Surname</label>
+                    </p-floatlabel>
+                </div>
+                <div class="flex w-full gap-8">
+                    <p-floatlabel variant="in" class="w-1/2">
+                        <input pInputText id="in_label" autocomplete="off" [fluid]="true" formControlName="nif" />
+                        <label for="in_label">NIF</label>
+                    </p-floatlabel>
+                    <p-floatlabel variant="in" class="w-1/2">
+                        <input pInputText id="in_label" autocomplete="off" [fluid]="true" formControlName="email" />
+                        <label for="in_label">Email</label>
+                    </p-floatlabel>
+                </div>
+                <div class="flex w-full gap-8">
+                    <p-floatlabel variant="in" class="w-1/2">
+                        <input pInputText id="in_label" autocomplete="off" [fluid]="true" formControlName="height" />
+                        <label for="in_label">Height</label>
+                    </p-floatlabel>
+                    <p-floatlabel variant="in" class="w-1/2">
+                        <input pInputText id="in_label" autocomplete="off" [fluid]="true" formControlName="weight" />
+                        <label for="in_label">Weight</label>
+                    </p-floatlabel>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

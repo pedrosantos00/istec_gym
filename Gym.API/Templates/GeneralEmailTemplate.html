@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            border-radius: 10px 10px 0 0;
+        }
+
+            .header h1 {
+                margin: 0;
+            }
+
+        .content {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+            .content h2 {
+                margin-top: 0;
+            }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>Gym Notification</h1>
+        </div>
+        <div class="content">
+            <p>Hello,</p>
+            <p>We hope this message finds you well!</p>
+            <h2>{{TITLE}}</h2>
+            <p>{{DESCRIPTION}}</p>
+            <p>For more information, you can access our portal using the button below:</p>
+            <a href="{{PORTAL_LINK}}" target="_blank" class="button">Visit the Portal</a>
+            <p style="margin-top:10px">If the button above doesn’t work, copy and paste the following link into your browser:</p>
+            <p><a href="{{PORTAL_LINK}}">{{PORTAL_LINK}}</a></p>
+        </div>
+        <div class="footer">
+            <p>If you need assistance, feel free to contact us at <a href="mailto:support@gym.com">support@gym.com</a>.</p>
+            <p>Thank you, <br> The Gym Team</p>
+        </div>
+    </div>
+</body>
+</html>

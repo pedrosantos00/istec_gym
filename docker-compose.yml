@@ -1,0 +1,10 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: gym-app-container
+    ports:
+      - "1433:1433" # Expose SQL Server port
+    environment:
+      - ACCEPT_EULA=Y # Accept the End User License Agreement
+      - MSSQL_SA_PASSWORD=YourStrong!Password # Set a strong password for the SA account
+    platform: linux/amd64 # Run the image under AMD64 emulation

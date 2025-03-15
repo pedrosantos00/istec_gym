@@ -1,0 +1,9 @@
+:host ::ng-deep p-menubarsub {
+  @apply lg:w-full;
+}
+:host ::ng-deep p-toggleswitch {
+  @apply flex items-center;
+}
+.full-screen {
+  min-height: calc(100vh - 82px - 96px);
+}

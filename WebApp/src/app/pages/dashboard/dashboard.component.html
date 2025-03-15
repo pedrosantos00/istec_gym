@@ -1,0 +1,71 @@
+<div class="w-full h-full">
+  <div class="w-full flex h-full justify-center items-center">
+    <div class="container">
+      <p-tabs value="0">
+        <!-- My Gym Classes Tab -->
+        <p-tablist header="My Gym Classes">
+          <p-tab value="0">Your Enrolled Gym Classes</p-tab>
+          <p-tab value="1">Join a New Class</p-tab>
+        </p-tablist>
+
+        <p-tabpanels>
+          <p-tabpanel value="0">
+            <div class="p-4">
+              <div *ngIf="userGymClasses.length; else noClasses">
+                <ul class="list-disc pl-5">
+                  <li *ngFor="let gymClass of userGymClasses" class="mb-2 flex justify-between items-center">
+
+                    <span>
+                      <p-tag [severity]="getDifficultySeverity(gymClass.difficulty)" class="mr-6 w-24">
+                        {{ getDifficultyLabel(gymClass.difficulty) }}
+                      </p-tag>
+                      <span class="font-medium">{{ gymClass.name }} </span><span class="text-primary text-center font-black">-</span> {{ gymClass.day | date:'short' }} <span class="text-primary font-black text-2xl">|</span> Duration - {{gymClass.duration}} min
+                    </span>
+                    <button
+                      pButton severity="danger"
+                      (click)="requestLeave(gymClass)">
+                      Leave
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <ng-template #noClasses>
+                <p class="text-gray-500">You are not enrolled in any classes.</p>
+              </ng-template>
+            </div>
+          </p-tabpanel>
+          <p-tabpanel value="1">
+            <div class="p-4">
+              <div *ngIf="availableGymClasses.length; else noAvailableClasses">
+                <ul class="list-disc pl-5">
+                  <li *ngFor="let gymClass of availableGymClasses" class="mb-2 flex justify-between items-center">
+                    <span>
+                      <p-tag [severity]="getDifficultySeverity(gymClass.difficulty)" class="mr-6 w-24">
+                        {{ getDifficultyLabel(gymClass.difficulty) }}
+                      </p-tag>
+
+                      <span class="font-medium">{{ gymClass.name }}</span> - {{ gymClass.day | date:'short' }} | Duration - {{gymClass.duration}} min
+                      <span class="ml-2 text-sm" [ngClass]="{'text-green-600': !isClassFull(gymClass), 'text-red-500': isClassFull(gymClass)}">
+                        ({{ gymClass.totalParticipants }}/{{ gymClass.maxParticipants }} enrolled)
+                      </span>
+
+                    </span>
+                    <button
+                      pButton class="w-16" [severity]="isClassFull(gymClass) ? 'danger' : 'primary'"
+                      [disabled]="isClassFull(gymClass)"
+                      (click)="joinClass(gymClass)">
+                      {{ isClassFull(gymClass) ? 'Full' : 'Join' }}
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <ng-template #noAvailableClasses>
+                <p class="text-gray-500">No available classes at the moment.</p>
+              </ng-template>
+            </div>
+          </p-tabpanel>
+        </p-tabpanels>
+      </p-tabs>
+    </div>
+  </div>
+</div>

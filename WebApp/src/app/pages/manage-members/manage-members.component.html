@@ -1,0 +1,31 @@
+<div class="w-full h-full">
+    <div class="flex justify-center">
+        <div class="container">
+            <div class="h-full w-full">
+                <p-contextmenu #cm [model]="items" (onHide)="selectedUser" />
+                <p-table [value]="users" [first]="first" [totalRecords]="totalRecords" [paginator]="true" [rows]="rows"
+                    (onPage)="pageChange($event)" [rowsPerPageOptions]="[5,10]" [lazy]="true" size="large"
+                    [(contextMenuSelection)]="selectedUser" [contextMenu]="cm">
+                    <ng-template #header>
+                        <tr>
+                            <th>Role</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>NIF</th>
+                            <th>Email</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-appUser>
+                      <tr [pContextMenuRow]="appUser">
+                        <td>{{appUser.role | role}}</td>
+                        <td>{{appUser.firstName}}</td>
+                        <td>{{appUser.lastName}}</td>
+                        <td>{{appUser.nif}}</td>
+                        <td>{{appUser.email}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>

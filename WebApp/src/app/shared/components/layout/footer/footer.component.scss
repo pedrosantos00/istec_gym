@@ -1,0 +1,7 @@
+footer h5 { 
+    @apply text-xl text-white uppercase font-semibold text-center;
+}
+
+.social-icon {
+    @apply transition-all hover:scale-110 cursor-pointer hover:text-primary;
+}

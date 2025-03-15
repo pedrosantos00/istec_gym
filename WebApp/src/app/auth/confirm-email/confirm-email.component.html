@@ -1,0 +1,38 @@
+<div class="w-full h-full">
+  <div class="w-full flex h-full justify-center items-center">
+    <div class="container">
+      <div
+        class="custom-height w-full flex flex-col gap-4 items-center justify-center"
+      >
+        <p-button
+          routerLink="/login"
+          label="Back"
+          severity="secondary"
+          class="mr-auto"
+          icon="pi pi-arrow-left"
+        />
+
+        <div
+          class="flex w-[30rem] h-fullrounded border border-primary p-8 flex-col gap-4"
+        >
+          <h3 class="text-center text-3xl font-black text-primary">
+            Confirm Email
+          </h3>
+
+          <div class="text-center">
+            <p class="text-lg font-semibold">{{ confirmationStatus }}</p>
+          </div>
+
+          <div class="flex justify-center mt-4" *ngIf="confirmationFailed">
+            <button
+              (click)="resendConfirmationEmail()"
+              class="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition"
+            >
+              Resend Confirmation Email
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

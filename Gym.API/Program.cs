@@ -17,7 +17,7 @@ public class Program
 
         // Configure DbContext
         builder.Services.AddDbContext<ApplicationDbContext>(opt =>
-            opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+            opt.UseSqlServer(Environment.GetEnvironmentVariable("CONNECTION_STRING"))
         );
 
         builder.Services.AddCors(options =>

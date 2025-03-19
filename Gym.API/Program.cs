@@ -17,8 +17,7 @@ public class Program
 
         // Configure DbContext
         builder.Services.AddDbContext<ApplicationDbContext>(opt =>
-            opt.UseSqlServer(Environment.GetEnvironmentVariable("CONNECTION_STRING"))
-        );
+            opt.UseSqlite("Data Source=gym.db"));
 
         builder.Services.AddCors(options =>
         {

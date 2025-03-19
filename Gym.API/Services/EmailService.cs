@@ -60,7 +60,7 @@ public class EmailService : IEmailService
     {
         var mailMessage = new MailMessage
         {
-            From = new MailAddress(_smtpSettings.Username, "GYM"),
+            From = new MailAddress(Environment.GetEnvironmentVariable("SMTP_USERNAME"), "GYM"),
             Subject = subject,
             Body = body,
             IsBodyHtml = true
@@ -68,9 +68,9 @@ public class EmailService : IEmailService
 
         mailMessage.To.Add(toEmail);
 
-        using var smtpClient = new SmtpClient(_smtpSettings.Host, _smtpSettings.Port)
+        using var smtpClient = new SmtpClient("smtp.gmail.com", 587)
         {
-            Credentials = new NetworkCredential(_smtpSettings.Username, _smtpSettings.Password),
+            Credentials = new NetworkCredential(Environment.GetEnvironmentVariable("SMTP_USERNAME"), Environment.GetEnvironmentVariable("SMTP_PASSWORD")),
             EnableSsl = true
         };
 

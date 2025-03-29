@@ -1,3 +1,3 @@
 export const environment = {
-  baseApiUrl: 'https://localhost:7291/api/v1',
+  baseApiUrl: 'https://apigym.pedroasantos.dev/api/v1',
 };

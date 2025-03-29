@@ -1,3 +1,3 @@
 export const environment = {
-  baseApiUrl: 'https://api.gym.pedroasantos.dev/api/v1',
+  baseApiUrl: 'https://apigym.pedroasantos.dev/api/v1',
 };

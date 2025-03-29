@@ -8,6 +8,24 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Templates\AccountConfirmationTemplate.html" />
+      <None Remove="Templates\GeneralEmailTemplate.html" />
+      <None Remove="Templates\PasswordRecoveryTemplate.html" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Templates\AccountConfirmationTemplate.html">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Templates\GeneralEmailTemplate.html">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Templates\PasswordRecoveryTemplate.html">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.3.0" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.13" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.13" />

@@ -26,7 +26,8 @@
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7291;http://localhost:5080",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "CONNECTION_STRING": "Host=188.245.250.220;Port=3306;Database=default;User ID=mysql;Password=HzuWgk9sws4qWzMT78mhGcK84YG0uAbqHH6WC0pZQuNomPJGhFk9GbYIE1d4xvPO;"
       }
     },
     "IIS Express": {
